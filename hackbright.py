@@ -8,9 +8,10 @@ def get_student_by_github(github):
     query = """SELECT first_name, last_name, github FROM Students WHERE github = ?"""
     DB.execute(query, (github,))
     row = DB.fetchone()
-    print """\
-Student: %s %s
-Github account: %s"""%(row[0], row[1], row[2])
+    return row
+#     return """\
+# Student: %s %s
+# Github account: %s"""%(row[0], row[1], row[2])
 
 
 def connect_to_db():
